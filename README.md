@@ -19,24 +19,24 @@ Each record in DoxplainQA conforms to the following schema:
 
 | Field Name | Type | Description |
 |----------|------|-------------|
-| `dataset` | `str` | Name of the originating dataset |
-| `id` | `str` | Original dataset-specific identifier |
-| `question` | `str` | Natural language question |
-| `answer` | `str` | Canonical answer string |
-| `context` | `str` | Supporting textual context from which the answer is derived |
+| dataset | str | Name of the originating dataset |
+| id | str | Original dataset-specific identifier |
+| question | str | Natural language question |
+| answer | str | Canonical answer string |
+| context | str | Supporting textual context from which the answer is derived |
 
 ## Dataset Sources and Field Mappings
 
 DoxplainQA currently integrates the following datasets:
 
-- `boolq`
-- `drop`
-- `hotpotqa`
-- `narrativeqa`
-- `natural_questions`
-- `qasper`
-- `squad_v2`
-- `triviaqa_wiki`
+- boolq
+- drop
+- hotpotqa
+- narrativeqa
+- natural_questions
+- qasper
+- squad_v2
+- triviaqa_wiki
 
 Each dataset is transformed independently into the unified schema using deterministic mappings documented below.
 
@@ -51,20 +51,20 @@ Clark et al., *BoolQ: Exploring the Surprising Difficulty of Natural Yes/No Ques
 
 | BoolQ Field | Description |
 |------------|-------------|
-| `id` | Question identifier |
-| `question` | Yes/no question |
-| `passage` | Supporting passage |
-| `answer` | Boolean label |
+| id | Question identifier |
+| question | Yes/no question |
+| passage | Supporting passage |
+| answer | Boolean label |
 
 **Mapping to DoxplainQA**
 
 | DoxplainQA Field | Source |
 |------------------|--------|
-| `dataset` | `"boolq"` |
-| `id` | `id` |
-| `question` | `question` |
-| `answer` | Stringified boolean (`"yes"` / `"no"`) |
-| `context` | `passage` |
+| dataset | "boolq" |
+| id | id |
+| question | question |
+| answer | Stringified boolean ("yes" / "no") |
+| context | passage |
 
 ### 2. DROP
 
@@ -75,20 +75,20 @@ Dua et al., *DROP: A Reading Comprehension Benchmark Requiring Discrete Reasonin
 
 | DROP Field | Description |
 |-----------|-------------|
-| `query_id` | Question identifier |
-| `question` | Question text |
-| `passage` | Passage text |
-| `answers_spans` / `answers_number` | Answer annotations |
+| query_id | Question identifier |
+| question | Question text |
+| passage | Passage text |
+| answers_spans / answers_number | Answer annotations |
 
 **Mapping to DoxplainQA**
 
 | DoxplainQA Field | Source |
 |------------------|--------|
-| `dataset` | `"drop"` |
-| `id` | `query_id` |
-| `question` | `question` |
-| `answer` | Normalized span or number answer |
-| `context` | `passage` |
+| dataset | "drop" |
+| id | query_id |
+| question | question |
+| answer | Normalized span or number answer |
+| context | passage |
 
 **Notes**
 - Numerical and span answers are normalized to strings.
@@ -103,20 +103,20 @@ Yang et al., *HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question An
 
 | HotpotQA Field | Description |
 |---------------|-------------|
-| `_id` | Question identifier |
-| `question` | Question text |
-| `context` | Supporting paragraphs |
-| `answer` | Answer string |
+| _id | Question identifier |
+| question | Question text |
+| context | Supporting paragraphs |
+| answer | Answer string |
 
 **Mapping to DoxplainQA**
 
 | DoxplainQA Field | Source |
 |------------------|--------|
-| `dataset` | `"hotpotqa"` |
-| `id` | `_id` |
-| `question` | `question` |
-| `answer` | `answer` |
-| `context` | Concatenated paragraph texts |
+| dataset | "hotpotqa" |
+| id | _id |
+| question | question |
+| answer | answer |
+| context | Concatenated paragraph texts |
 
 ### 4. NarrativeQA
 
@@ -127,20 +127,20 @@ Kočiský et al., *The NarrativeQA Reading Comprehension Challenge*, TACL 2018. 
 
 | NarrativeQA Field | Description |
 |------------------|-------------|
-| `question_id` | Question identifier |
-| `question` | Question text |
-| `answer.text` | Human-generated answer |
-| `summary` / `document` | Story context |
+| question_id | Question identifier |
+| question | Question text |
+| answer.text | Human-generated answer |
+| summary / document | Story context |
 
 **Mapping to DoxplainQA**
 
 | DoxplainQA Field | Source |
 |------------------|--------|
-| `dataset` | `"narrativeqa"` |
-| `id` | `question_id` |
-| `question` | `question` |
-| `answer` | `answer.text` |
-| `context` | Summary or full document text |
+| dataset | "narrativeqa" |
+| id | question_id |
+| question | question |
+| answer | answer.text |
+| context | Summary or full document text |
 
 ### 5. Natural Questions
 
@@ -151,20 +151,20 @@ Kwiatkowski et al., *Natural Questions: A Benchmark for Question Answering Resea
 
 | NQ Field | Description |
 |--------|-------------|
-| `example_id` | Question identifier |
-| `question_text` | Question |
-| `document_text` | Wikipedia page |
-| `short_answers` | Answer spans |
+| example_id | Question identifier |
+| question_text | Question |
+| document_text | Wikipedia page |
+| short_answers | Answer spans |
 
 **Mapping to DoxplainQA**
 
 | DoxplainQA Field | Source |
 |------------------|--------|
-| `dataset` | `"natural_questions"` |
-| `id` | `example_id` |
-| `question` | `question_text` |
-| `answer` | Extracted short-answer text |
-| `context` | `document_text` |
+| dataset | "natural_questions" |
+| id | example_id |
+| question | question_text |
+| answer | Extracted short-answer text |
+| context | document_text |
 
 ### 6. QASPER
 
@@ -175,20 +175,20 @@ Dasigi et al., *A Dataset of Information-Seeking Questions and Answers Anchored 
 
 | QASPER Field | Description |
 |-------------|-------------|
-| `question_id` | Question identifier |
-| `question` | Question text |
-| `evidence` | Supporting sections |
-| `answer.answer_text` | Free-form answer |
+| question_id | Question identifier |
+| question | Question text |
+| evidence | Supporting sections |
+| answer.answer_text | Free-form answer |
 
 **Mapping to DoxplainQA**
 
 | DoxplainQA Field | Source |
 |------------------|--------|
-| `dataset` | `"qasper"` |
-| `id` | `question_id` |
-| `question` | `question` |
-| `answer` | `answer.answer_text` |
-| `context` | Concatenated evidence text |
+| dataset | "qasper" |
+| id | question_id |
+| question | question |
+| answer | answer.answer_text |
+| context | Concatenated evidence text |
 
 ### 7. SQuAD v2.0
 
@@ -199,20 +199,20 @@ Rajpurkar et al., *Know What You Don’t Know: Unanswerable Questions for SQuAD*
 
 | SQuAD Field | Description |
 |------------|-------------|
-| `id` | Question identifier |
-| `question` | Question text |
-| `context` | Paragraph |
-| `answers.text` | Answer spans |
+| id | Question identifier |
+| question | Question text |
+| context | Paragraph |
+| answers.text | Answer spans |
 
 **Mapping to DoxplainQA**
 
 | DoxplainQA Field | Source |
 |------------------|--------|
-| `dataset` | `"squad_v2"` |
-| `id` | `id` |
-| `question` | `question` |
-| `answer` | Answer span text (or empty for unanswerable) |
-| `context` | `context` |
+| dataset | "squad_v2" |
+| id | id |
+| question | question |
+| answer | Answer span text (or empty for unanswerable) |
+| context | context |
 
 ### 8. TriviaQA (Wikipedia)
 
@@ -223,20 +223,20 @@ Joshi et al., *TriviaQA: A Large Scale Distantly Supervised Challenge Dataset fo
 
 | TriviaQA Field | Description |
 |---------------|-------------|
-| `question_id` | Question identifier |
-| `question` | Trivia question |
-| `answer.value` | Answer string |
-| `entity_pages[].wiki_context` | Wikipedia context |
+| question_id | Question identifier |
+| question | Trivia question |
+| answer.value | Answer string |
+| entity_pages[].wiki_context | Wikipedia context |
 
 **Mapping to DoxplainQA**
 
 | DoxplainQA Field | Source |
 |------------------|--------|
-| `dataset` | `"triviaqa_wiki"` |
-| `id` | `question_id` |
-| `question` | `question` |
-| `answer` | `answer.value` |
-| `context` | Concatenated Wikipedia contexts |
+| dataset | "triviaqa_wiki" |
+| id | question_id |
+| question | question |
+| answer | answer.value |
+| context | Concatenated Wikipedia contexts |
 
 ## Design Rationale
 
