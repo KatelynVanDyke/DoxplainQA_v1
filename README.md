@@ -22,6 +22,7 @@ Each record in DoxplainQA conforms to the following schema:
 | Field Name | Type | Description |
 |----------|------|-------------|
 | dataset | str | Name of the originating dataset |
+| split | str | Original train/test/validation split tag |
 | id | str | Original dataset-specific identifier |
 | question | str | Natural language question |
 | answer | str | Canonical answer string |
@@ -62,6 +63,7 @@ Clark et al., *BoolQ: Exploring the Surprising Difficulty of Natural Yes/No Ques
 | DoxplainQA Field | Source |
 |------------------|--------|
 | dataset | "boolq" |
+| split | "train", "test", "validation" |
 | id | NaN |
 | question | question |
 | answer | Stringified boolean ("yes" / "no") |
@@ -86,6 +88,7 @@ Dua et al., *DROP: A Reading Comprehension Benchmark Requiring Discrete Reasonin
 | DoxplainQA Field | Source |
 |------------------|--------|
 | dataset | "drop" |
+| split | "train", "test", "validation" |
 | id | query_id |
 | question | question |
 | answer | Normalized span or number answer |
@@ -114,6 +117,7 @@ Yang et al., *HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question An
 | DoxplainQA Field | Source |
 |------------------|--------|
 | dataset | "hotpotqa" |
+| split | "train", "test", "validation" |
 | id | _id |
 | question | question |
 | answer | answer |
@@ -138,6 +142,7 @@ Kočiský et al., *The NarrativeQA Reading Comprehension Challenge*, TACL 2018. 
 | DoxplainQA Field | Source |
 |------------------|--------|
 | dataset | "narrativeqa" |
+| split | "train", "test", "validation" |
 | id | question_id |
 | question | question |
 | answer | answer.text |
@@ -162,6 +167,7 @@ Kwiatkowski et al., *Natural Questions: A Benchmark for Question Answering Resea
 | DoxplainQA Field | Source |
 |------------------|--------|
 | dataset | "natural_questions" |
+| split | "train", "test", "validation" |
 | id | example_id |
 | question | question_text |
 | answer | Extracted short-answer text |
@@ -186,6 +192,7 @@ Dasigi et al., *A Dataset of Information-Seeking Questions and Answers Anchored 
 | DoxplainQA Field | Source |
 |------------------|--------|
 | dataset | "qasper" |
+| split | "train", "test", "validation" |
 | id | question_id |
 | question | question |
 | answer | answer.answer_text |
@@ -210,6 +217,7 @@ Rajpurkar et al., *Know What You Don’t Know: Unanswerable Questions for SQuAD*
 | DoxplainQA Field | Source |
 |------------------|--------|
 | dataset | "squad_v2" |
+| split | "train", "test", "validation" |
 | id | id |
 | question | question |
 | answer | Answer span text (or empty for unanswerable) |
@@ -234,6 +242,7 @@ Joshi et al., *TriviaQA: A Large Scale Distantly Supervised Challenge Dataset fo
 | DoxplainQA Field | Source |
 |------------------|--------|
 | dataset | "triviaqa_wiki" |
+| split | "train", "test", "validation" |
 | id | question_id |
 | question | question |
 | answer | answer.value |
@@ -241,7 +250,7 @@ Joshi et al., *TriviaQA: A Large Scale Distantly Supervised Challenge Dataset fo
 
 ## Design Rationale
 
-The DoxplainQA schema is intentionally minimal. All task-specific or structural information not expressible through the five core fields is removed to ensure:
+The DoxplainQA schema is intentionally minimal. All task-specific or structural information not expressible through the six core fields is removed to ensure:
 
 - Consistent model interfaces  
 - Simplified evaluation logic  
