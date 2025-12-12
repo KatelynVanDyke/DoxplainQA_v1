@@ -1,11 +1,11 @@
 cff-version: 1.2.0
 title: DoxplainQA: A Unified Question–Answering Dataset
 message: >
-  If you use this dataset, please cite the originating datasets and consider citing this repository with the following metadata.
+  If you use this dataset, please cite the originating datasets AND this repository.
 type: dataset
 authors:
   - family-names: Van Dyke
-    given-names: Katelyn
+  - given-names: Katelyn
 year: 2025
 abstract: >
   DoxplainQA is a unified question–answering dataset that aggregates
