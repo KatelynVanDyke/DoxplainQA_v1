@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: DoxplainQA: A Unified Question–Answering Dataset
+message: >
+  If you use this dataset, please cite it using the following metadata.
+type: dataset
+authors:
+  - family-names: Van Dyke
+    given-names: Katelyn
+year: 2025
+abstract: >
+  DoxplainQA is a unified question–answering dataset that aggregates
+  eight widely used QA benchmarks into a single minimal schema for
+  consistent training and evaluation.
+keywords:
+  - question answering
+  - dataset
+  - natural language processing
+  - benchmark aggregation
+repository-code: https://github.com/<your-username>/<your-repo>
+license: CC-BY-4.0
