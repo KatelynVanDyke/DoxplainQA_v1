@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 title: DoxplainQA: A Unified Question–Answering Dataset
 message: >
-  If you use this dataset, please cite it using the following metadata.
+  If you use this dataset, please cite the originating datasets and consider citing this repository with the following metadata.
 type: dataset
 authors:
   - family-names: Van Dyke
